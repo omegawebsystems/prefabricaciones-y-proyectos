@@ -4,7 +4,7 @@
 		<div class="content-dashboard">
 			<div class="row">
 				<div class="col-3">
-					<label>cliente_nombre</label>
+					<label>Nombre</label>
 					<label class="input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text input-icono "><i class="fas fa-pencil-alt"></i></span>
@@ -13,7 +13,7 @@
 					</label>
 				</div>
 				<div class="col-3">
-					<label>cliente_descripcion</label>
+					<label>Descripción</label>
 					<label class="input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text input-icono "><i class="fas fa-pencil-alt"></i></span>
@@ -22,7 +22,7 @@
 					</label>
 				</div>
 				<div class="col-3">
-					<label>cliente_imagen</label>
+					<label>Imagen</label>
 					<label class="input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text input-icono "><i class="fas fa-pencil-alt"></i></span>
@@ -94,9 +94,9 @@
 			<table class=" table table-striped  table-hover table-administrator text-left">
 				<thead>
 					<tr>
-						<td>cliente_nombre</td>
-						<td>cliente_descripcion</td>
-						<td>cliente_imagen</td>
+						<td>Nombre</td>
+						<td>Descripción</td>
+						<td>Imagen</td>
 						<td width="100"></td>
 					</tr>
 				</thead>

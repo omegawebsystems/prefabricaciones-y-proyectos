@@ -10,7 +10,7 @@
 			<?php }?>
 			<div class="row">
 				<div class="col-12 form-group">
-					<label for="cliente_nombre"  class="control-label">cliente_nombre</label>
+					<label for="cliente_nombre"  class="control-label">Nombre</label>
 					<label class="input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text input-icono " ><i class="fas fa-pencil-alt"></i></span>
@@ -20,12 +20,12 @@
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="col-12 form-group">
-					<label for="cliente_descripcion" class="form-label" >cliente_descripcion</label>
+					<label for="cliente_descripcion" class="form-label" >Descripción</label>
 					<textarea name="cliente_descripcion" id="cliente_descripcion"   class="form-control tinyeditor" rows="10" ><?= $this->content->cliente_descripcion; ?></textarea>
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="col-12 form-group">
-					<label for="cliente_imagen" >cliente_imagen</label>
+					<label for="cliente_imagen" >Imagen</label>
 					<input type="file" name="cliente_imagen" id="cliente_imagen" class="form-control  file-image" data-buttonName="btn-primary" accept="image/gif, image/jpg, image/jpeg, image/png"  <?php if(!$this->content->id){ echo 'required'; } ?>>
 					<div class="help-block with-errors"></div>
 					<?php if($this->content->cliente_imagen) { ?>
