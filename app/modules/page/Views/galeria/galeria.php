@@ -1,60 +1,60 @@
 co<?php
-$galeriaModel = new Administracion_Model_DbTable_Album();
-$albumes = $galeriaModel->getList();
-$fotoModel = new Administracion_Model_DbTable_Foto();
-$galeriaItems = [];
-foreach ($albumes as $key => $album) {
-    $fotos = $fotoModel->getByAlbum($album->id);
-    array_push($galeriaItems, [
-        'id' => $album->id,
-        'titulo' => $album->galeria_titulo,
-        'descripcion' => $album->galeria_descripcion,
-        'imagen_principal' => $album->galeria_imagen,
-        'imagenes_galeria' => $fotos,
-    ]);
-}
-?>
+    $galeriaModel = new Administracion_Model_DbTable_Album();
+    $albumes = $galeriaModel->getList();
+    $fotoModel = new Administracion_Model_DbTable_Foto();
+    $galeriaItems = [];
+    foreach ($albumes as $key => $album) {
+        $fotos = $fotoModel->getByAlbum($album->id);
+        array_push($galeriaItems, [
+            'id' => $album->id,
+            'titulo' => $album->galeria_titulo,
+            'descripcion' => $album->galeria_descripcion,
+            'imagen_principal' => $album->galeria_imagen,
+            'imagenes_galeria' => $fotos,
+        ]);
+    }
+    ?>
 
 <!-- Contenido de la galería -->
 <div class="contenedor-seccion" style="background-color: #fff">
- 
-        <!-- Grid de la galería -->
-        <div class="row">
-            <?php foreach ($galeriaItems as $index => $item): ?>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="<?= $index * 100 ?>">
-                    <div class="proyecto-card" style="background-image: url('/images/<?= $item['imagen_principal'] ?>');">
 
-                        <?php foreach ($item['imagenes_galeria'] as $imagen): ?>
-                            <a href="<?= '/images/' . $imagen->foto_path ?>"
-                                data-fancybox="gallery-<?= $item['id'] ?>"
-                                data-caption="<?= $imagen->foto_titulo ?>"
-                                style="display: none;"></a>
-                        <?php endforeach; ?>
+    <!-- Grid de la galería -->
+    <div class="row">
+        <?php foreach ($galeriaItems as $index => $item): ?>
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="<?= $index * 100 ?>">
+                <div class="proyecto-card" style="background-image: url('/images/<?= $item['imagen_principal'] ?>');">
 
-                        <div class="camera-icon">
-                            <i class="fas fa-camera"></i>
-                        </div>
+                    <?php foreach ($item['imagenes_galeria'] as $imagen): ?>
+                        <a href="<?= '/images/' . $imagen->foto_path ?>"
+                            data-fancybox="gallery-<?= $item['id'] ?>"
+                            data-caption="<?= $imagen->foto_titulo ?>"
+                            style="display: none;"></a>
+                    <?php endforeach; ?>
 
-                        <div class="proyecto-card-content">
-                            <h3 class="proyecto-title"><?= $item['titulo'] ?></h3>
-                            <div class="proyecto-subtitle"><?= $item['descripcion'] ?></div>
+                    <div class="camera-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
 
-                            <!-- Botón Ver galería -->
-                             <?php if (!empty($item['imagenes_galeria'])): ?>
+                    <div class="proyecto-card-content">
+                        <h3 class="proyecto-title"><?= $item['titulo'] ?></h3>
+                        <div class="proyecto-subtitle"><?= $item['descripcion'] ?></div>
+
+                        <!-- Botón Ver galería -->
+                        <?php if (!empty($item['imagenes_galeria'])): ?>
                             <button class="btn-ver-galeria"
                                 onclick="abrirGaleria(<?= $item['id'] ?>)"
                                 data-fancybox="gallery-<?= $item['id'] ?>"
                                 data-src="<?= $item['imagen_principal'] ?>"
                                 data-caption="<?= $item['titulo'] ?> - <?= $item['descripcion'] ?>"
-                                type="button" >
+                                type="button">
                                 Ver galería
                             </button>
-                            <?php endif; ?>
-                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>
-            <?php endforeach; ?>
-        </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
 
 </div>
 
